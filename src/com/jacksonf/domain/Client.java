@@ -62,7 +62,7 @@ public class Client {
 	}
 	
 	public Boolean precedesTo(Client client){
-		int comparisonResult = this.getCpf().compareToIgnoreCase(client.getCpf());		
+		int comparisonResult = this.getNome().compareToIgnoreCase(client.getNome());		
 		return comparisonResult < 0;	
 	}
 	

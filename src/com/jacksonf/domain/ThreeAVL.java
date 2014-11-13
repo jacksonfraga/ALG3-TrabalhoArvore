@@ -1,9 +1,18 @@
 package com.jacksonf.domain;
 
 public class ThreeAVL {
+	private int rotateLeftCount, rotateRightCount, rotateInsertCount;
+
+	public ThreeAVL() {
+		this.rotateLeftCount = 0;
+		this.rotateRightCount = 0;
+	}
+
 	public Node insertNode(Node node, Client value) {
 
 		Node newNode;
+		
+		rotateInsertCount = 0;
 
 		if (node == null) {
 			newNode = new Node();
@@ -98,6 +107,8 @@ public class ThreeAVL {
 		} else {
 			aux1.setHeigthRight(aux1.getRight().getHeigthRight() + 1);
 		}
+		rotateRightCount++;
+		rotateInsertCount++;
 		return aux1;
 	}
 
@@ -124,6 +135,9 @@ public class ThreeAVL {
 		} else {
 			aux1.setHeigthLeft(aux1.getLeft().getHeigthRight() + 1);
 		}
+		
+		rotateLeftCount++;
+		rotateInsertCount++;
 		return aux1;
 	}
 
@@ -152,4 +166,24 @@ public class ThreeAVL {
 			System.out.print(node.getValue().getNome() + " ");
 		}
 	}
+	
+	public int getRotateLeftCount()
+	{
+		return rotateLeftCount;	
+	}
+	
+	public int getRotateRightCount()
+	{
+		return rotateRightCount;	
+	}
+	
+	public int getRotateTotalCount()
+	{
+		return rotateLeftCount + rotateRightCount;	
+	}
+		
+	public int getRotateInsertCount(){
+		return rotateInsertCount;
+	}
+	
 }
